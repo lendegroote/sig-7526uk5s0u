@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brants &amp; Patents Email Signature</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://use.typekit.net/zui5iyp.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@1,600&display=swap">
+<style>
+/* Otto-style setup page (Figma "Mail signature setup page", Len's design 8 Oct 2026): Otto nav, grey cards on white,
+   step 1 = fields + live mail preview + one copy button (version tabs when there are several), step 2 = install steps, Otto footer.
+   Roc Grotesk comes from Otto's Adobe Fonts kit; Archivo-like system fallbacks keep it readable if the kit fails. */
+:root{
+  --ink:#1A1A1A; --ink-2:#3E4043; --muted:#6F7276; --line:#E6E6E6; --card:#F7F7F7; --chip:#EFEFEF; --sky:#A0D5F7;
+  --ok:#16402E; --okbg:#DDF9E6;
+  --roc:"roc-grotesk",'Arial Narrow',Arial,sans-serif; --roc-c:"roc-grotesk-condensed",'Arial Narrow',Arial,sans-serif;
+  --body:'Source Sans 3',Arial,sans-serif;
+  color-scheme:light;
+}
+html{background:#fff}
+body{margin:0;background:#fff;color:var(--ink);font:16px/1.5 var(--body)}
+a{color:inherit}
+.nav{background:var(--card);padding:16px 120px}
+.nav-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:32px;min-height:44px}
+.nav-logo{display:flex;color:var(--ink)}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{font-weight:700;text-decoration:none;border-radius:8px;padding:2px 8px}
+.nav-links a:hover{background:var(--chip)}
+.nav-cta{display:flex;gap:12px;justify-content:flex-end}
+.btn{font:700 16px/24px var(--body);text-decoration:none;border-radius:12px;padding:10px 16px;border:1px solid var(--ink);white-space:nowrap}
+.btn.dark{background:var(--ink);color:#F7F7F7}
+main{padding:84px 16px 160px}
+.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:16px;position:relative}
+.wrap>*{position:relative;z-index:1}
+.wrap>.wave{position:absolute;z-index:0;top:46px;right:-59px;width:517px;height:224px;pointer-events:none}
+main{overflow-x:clip}
+.hero{padding:20px 8px 12px}
+h1{font:500 32px/50.4px var(--roc-c);margin:0}
+.hero p{margin:0;color:var(--muted)}
+.card{background:var(--card);border-radius:24px;padding:28px 32px;display:flex;flex-direction:column;gap:40px}
+.card-head{display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+.step{font:400 10.3px/20px var(--body);color:var(--ok);background:#fff;border-radius:6.5px;padding:0 6px}
+h2{font:500 24px/24px var(--roc-c);margin:0}
+.fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 8px}
+label{display:flex;flex-direction:column;gap:6px;font:600 12.8px/15px var(--body);color:var(--muted);min-width:0}
+input,select{font:300 12px/20px var(--body);color:var(--ink);background:#fff;border:1px solid var(--card);border-radius:10px;padding:11px 13px;width:100%;box-sizing:border-box}
+input::placeholder{color:#8A8D91}
+@media (max-width:640px){input,select{font-size:16px}} /* under 16px iPhone zooms in on focus */
+select{appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:36px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236F7276' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 13px center}
+input:hover,select:hover{border-color:var(--line)}
+input:focus-visible,select:focus-visible{outline:none;border-color:var(--ink)}
+.pick{display:flex;flex-direction:column;gap:20px;min-width:0}
+.card,.wrap>*{min-width:0}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tabs:empty{display:none}
+.tab{font:600 14px/20px var(--body);border:0;background:#fff;color:var(--ink-2);border-radius:8px;padding:7px 12px;cursor:pointer}
+.tab span{color:var(--muted);font-weight:400}
+.tab[aria-selected="true"]{background:var(--ink);color:#fff}
+.tab[aria-selected="true"] span{color:#C9CBCE}
+.mail{background:#fff;border-radius:16px;padding:24px;font:13px/20px Arial,Helvetica,sans-serif;color:#202124;overflow-x:auto}
+.mail-from{display:flex;align-items:center;gap:6px;padding-bottom:16px}
+.avatar{width:24px;height:24px;border-radius:50%;background:#1A73E8;color:#fff;font:700 8.6px/24px Arial,sans-serif;text-align:center;flex:none}
+.mail-from b{font-size:14px}
+.mail-from span{color:#9AA0A6}
+.mail-from em{font-style:normal;color:#4C8DF6}
+.mail p{margin:0 0 14px}
+.mail p:last-of-type{margin:0}
+.mail-sig{margin-top:40px}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.btn-copy{font:600 14.4px/16px var(--body);background:var(--ink);color:#fff;border:0;border-radius:8px;padding:9px 18px;cursor:pointer}
+.btn-copy:focus-visible,.tab:focus-visible{outline:2px solid var(--sky);outline-offset:3px}
+.status{font:600 14px var(--body);border-radius:8px;padding:6px 12px}
+.status:empty{display:none}
+.status.ok{background:var(--okbg);color:var(--ok)}
+.status.warn{background:#fff;color:var(--ink-2)}
+ol.steps{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+ol.steps li{display:flex;flex-direction:column;align-items:flex-start;gap:14px;padding:24px;background:#fff;border-radius:24px}
+ol.steps li[hidden]{display:none}
+.app{font:700 16px/11px var(--body);background:var(--card);border-radius:6.5px;padding:8px}
+ol.steps p{margin:0;color:var(--muted)}
+ol.steps li div{display:flex;flex-direction:column;gap:2px}
+ol.steps .path{font-weight:500;color:var(--ink)}
+.path i{display:inline-block;width:12px;height:12px;margin:0 6px;vertical-align:-1px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236F7276' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 18 6-6-6-6'/%3E%3C/svg%3E") center/12px no-repeat}
+ol.steps b{font-weight:600;color:var(--ink)}
+kbd{font:600 12.8px var(--body);background:var(--card);border-radius:6px;padding:2px 7px}
+.foot{background:var(--ink);color:#F7F7F7;padding:120px;position:relative;overflow:hidden}
+.foot-in{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:80px;position:relative;z-index:1}
+.foot-top{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
+.foot-top svg{width:99px;height:40px}
+.foot-links{display:flex;gap:32px;flex-wrap:wrap}
+.foot-links a{font-weight:500;text-decoration:none}
+.foot-links a:hover,.foot-cols a:hover{text-decoration:underline}
+.foot-main{display:flex;flex-direction:column;gap:64px}
+.foot-cols{display:grid;grid-template-columns:1fr 1fr 486px;gap:24px;align-items:start}
+.foot-cols h4{font:600 16px/24px var(--body);margin:0 0 12px}
+.foot-cols p{margin:0 0 12px}
+.foot-cols .plain{text-decoration:none}
+.news{background:rgba(255,255,255,.15);border-radius:16px;padding:24px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.news b{display:block;font:500 20px/30px var(--roc)}
+.news span{font-weight:600}
+.news i{font:italic 600 16px/24px 'Source Serif 4',Georgia,serif}
+.btn.sky{background:var(--sky);border-color:var(--sky);color:var(--ink)}
+.credits{display:flex;flex-direction:column;gap:32px;border-top:1px solid var(--muted);padding-top:32px}
+.credits-row{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;font:500 14px/21px var(--body)}
+.credits-right{display:flex;align-items:center;gap:24px;font:600 16px/24px var(--body)}
+.credits-right a{text-decoration:none}
+.socials{display:flex;gap:12px}
+.socials a{display:flex}
+.copy{font-size:14px;margin:-32px 0 0}
+.oval{position:absolute;right:0;bottom:-80px;width:720px;max-width:60%;opacity:.5;pointer-events:none}
+@media (max-width:1000px){
+  .nav{padding:16px 20px} .nav-in{grid-template-columns:auto 1fr} .nav-links{display:none} .nav-cta .btn:not(.dark){display:none}
+  .foot{padding:72px 20px} .foot-cols{grid-template-columns:1fr} .news{flex-wrap:wrap}
+}
+@media (max-width:640px){
+  main{padding:48px 16px 96px} .wrap>.wave{display:none} .card{padding:22px 20px;gap:28px} .fields{grid-template-columns:1fr} .mail{padding:20px} ol.steps li{padding:20px}
+}
+</style>
+
+<nav class="nav"><div class="nav-in">
+  <a class="nav-logo" href="https://www.ottocreatives.com/" aria-label="Otto Creatives home"><svg width="74" height="30" viewBox="0 0 74 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M74 19.1051C74 25.0308 69.1962 29.8346 63.2705 29.8346C57.3447 29.8346 52.5409 25.0308 52.5409 19.1051C52.5409 17.5255 52.8823 16.0257 53.4952 14.6753H47.3442C46.4303 14.6753 45.6895 15.4161 45.6895 16.33V21.7515C45.6895 22.6654 46.4303 23.4062 47.3442 23.4062H51.3436V29.5723H45.9452C44.5209 29.5723 42.727 28.9366 41.2882 27.7691C39.8365 26.5913 38.6979 24.8304 38.6979 22.5624V17.0617C38.6979 16.1181 39.2235 15.2563 40.0553 14.8226C40.1104 14.7938 40.1466 14.7375 40.1466 14.6753H32.9421C32.0282 14.6753 31.2874 15.4161 31.2874 16.33V21.7515C31.2874 22.6654 32.0282 23.4062 32.9421 23.4062H36.5902V29.5723H31.5431C30.1188 29.5723 28.3249 28.9366 26.8861 27.7691C25.4345 26.5913 24.2958 24.8304 24.2958 22.5624V17.0617C24.2958 16.118 24.8214 15.2563 25.6532 14.8226C25.7083 14.7938 25.7445 14.7375 25.7445 14.6753H20.5055C21.118 16.0253 21.4591 17.5246 21.4591 19.1036C21.4591 25.0294 16.6553 29.8332 10.7295 29.8332C4.80378 29.8332 0 25.0294 0 19.1036C0 13.1779 4.80378 8.3741 10.7295 8.3741C14.8628 8.3741 18.4502 10.7112 20.2423 14.136V8.58644H20.8818C24.0049 8.58644 26.5689 4.70619 26.5689 0.551546V-3.05176e-05H32.9817C33.2136 2.16835 33.4909 5.15662 32.0174 6.9508C31.2482 7.88735 30.1777 8.42886 29.0016 8.48448V8.58644H35.4703C38.5922 8.58454 40.7873 4.70517 40.7873 0.551546V-3.05176e-05H47.2001C47.4321 2.16835 47.7094 5.15662 46.2359 6.9508C45.4667 7.88735 44.3962 8.42886 43.2201 8.48449V8.58644H53.5821L53.6438 14.3614C55.3947 10.8149 59.0477 8.37554 63.2705 8.37554C69.1962 8.37554 74 13.1793 74 19.1051ZM58.8291 19.0594C58.8291 21.5119 60.8173 23.5001 63.2698 23.5001C65.7224 23.5001 67.7105 21.5119 67.7105 19.0594C67.7105 16.6068 65.7224 14.6187 63.2698 14.6187C60.8173 14.6187 58.8291 16.6068 58.8291 19.0594ZM6.28819 19.0579C6.28819 21.5105 8.27637 23.4987 10.7289 23.4987C13.1814 23.4987 15.1696 21.5105 15.1696 19.0579C15.1696 16.6054 13.1814 14.6172 10.7289 14.6172C8.27637 14.6172 6.28819 16.6054 6.28819 19.0579Z"/></svg></a>
+  <div class="nav-links"><a href="https://www.ottocreatives.com/services">Services</a><a href="https://www.ottocreatives.com/cases">Cases</a><a href="https://www.ottocreatives.com/about">About</a></div>
+  <div class="nav-cta"><a class="btn" href="https://www.ottocreatives.com/services">View bundles</a><a class="btn dark" href="https://www.ottocreatives.com/contact">Talk to us</a></div>
+</div></nav>
+
+<main><div class="wrap">
+  <svg class="wave" viewBox="0 0 517 224" aria-hidden="true"><path fill="#A0D5F7" d="M4.92066e-06 110.768C3.40523e-05 49.6865 6.91916 7.65963e-05 15.4219 7.69678e-05C21.4157 0.000611287 26.6223 24.6917 29.1731 60.6595C29.2324 61.4951 30.5486 61.5513 30.6862 60.7249C36.6657 24.7941 48.8651 0.130938 62.9072 0.130938C75.9553 0.13097 87.4092 21.4264 93.763 53.2689C93.9139 54.0251 95.0392 54.0251 95.1901 53.2689C101.544 21.4266 112.998 0.131154 126.046 0.130941C139.87 0.130942 151.906 24.0334 157.982 59.0574C158.111 59.8043 159.205 59.8482 159.398 59.115C168.6 24.0596 186.85 0.130944 207.815 0.130945C229.634 0.131312 248.511 26.0468 257.311 63.4488C257.481 64.1747 258.552 64.1747 258.723 63.4488C267.522 26.0465 286.4 0.130963 308.219 0.130949C329.185 0.13095 347.435 24.0621 356.636 59.1203C356.829 59.8535 357.923 59.8096 358.052 59.0628C364.128 24.0358 376.165 0.130952 389.989 0.130953C403.037 0.13103 414.491 21.4265 420.845 53.2689C420.996 54.0251 422.121 54.0251 422.272 53.2689C428.626 21.4265 440.08 0.131138 453.128 0.130955C467.364 0.130956 479.703 25.4815 485.59 62.2227C485.723 63.0526 487.051 63.0018 487.11 62.1635C489.668 26.3363 494.864 1.76403 500.844 1.76279C509.347 1.76279 516.266 51.4491 516.266 112.53C516.266 173.612 509.346 223.298 500.844 223.298C494.733 223.297 489.441 197.636 486.946 160.527C486.89 159.689 485.562 159.63 485.426 160.459C479.476 196.652 467.233 221.536 453.128 221.536C440.08 221.536 428.626 200.241 422.272 168.399C422.121 167.643 420.996 167.643 420.845 168.399C414.491 200.241 403.037 221.536 389.989 221.536C376.165 221.536 364.128 197.632 358.052 162.605C357.923 161.858 356.829 161.815 356.636 162.548C347.435 197.605 329.185 221.536 308.219 221.536C286.4 221.536 267.522 195.621 258.723 158.219C258.552 157.493 257.481 157.493 257.311 158.219C248.511 195.621 229.634 221.536 207.815 221.536C186.85 221.536 168.6 197.608 159.398 162.553C159.205 161.82 158.111 161.864 157.982 162.611C151.906 197.634 139.87 221.536 126.046 221.536C112.998 221.536 101.544 200.241 95.1901 168.399C95.0392 167.643 93.9139 167.643 93.763 168.399C87.4091 200.241 75.9552 221.536 62.9072 221.536C48.86 221.536 36.6565 196.855 30.6792 160.903C30.5418 160.077 29.2256 160.133 29.1662 160.968C26.613 196.886 21.4106 221.536 15.4219 221.536C6.91914 221.536 1.96171e-06 171.849 4.92066e-06 110.768Z"/></svg>
+  <header class="hero">
+    <h1>Email signature</h1>
+    <p>Fill in your details, pick a version, copy, paste.</p>
+  </header>
+
+  <section class="card" aria-labelledby="h1s">
+    <div class="card-head"><span class="step">Step 1</span><h2 id="h1s">Fill in the fields below, copy the result</h2></div>
+    <div class="fields" id="fields"></div>
+    <div class="pick">
+      <div class="tabs" id="tabs" role="tablist" aria-label="Signature version"></div>
+      <div class="mail" id="preview"></div>
+      <div class="actions"><button class="btn-copy" id="copy">Copy signature</button><span class="status" id="status" role="status"></span></div>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="h2s">
+    <div class="card-head"><span class="step">Step 2</span><h2 id="h2s">Install it in your mail app</h2></div>
+    <ol class="steps" id="install">
+      <li data-app="gmail"><span class="app">Gmail</span><div><p class="path">Settings<i></i>See all settings<i></i>General<i></i>Signature</p><p>Create new (or pick your old one), click in the box, <kbd>Cmd</kbd> <kbd>A</kbd>, delete, <kbd>Cmd</kbd> <kbd>V</kbd>.</p><p>Set it as default for new mails and replies, then <b>save changes</b>.</p></div></li>
+      <li data-app="outlook"><span class="app">Outlook</span><div><p class="path">Settings<i></i>Mail<i></i>Compose and reply<i></i>Email signature</p><p>Paste, set it as default, save.</p></div></li>
+      <li data-app="apple"><span class="app">Apple Mail / Spark</span><div><p class="path">Settings<i></i>Signatures</p><p>Paste in the signature box and save. These apps keep their own signature, separate from Gmail.</p></div></li>
+    </ol>
+  </section>
+</div></main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-main">
+      <div class="foot-top">
+        <a class="nav-logo" style="color:#F7F7F7" href="https://www.ottocreatives.com/" aria-label="Otto Creatives home"><svg width="74" height="30" viewBox="0 0 74 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M74 19.1051C74 25.0308 69.1962 29.8346 63.2705 29.8346C57.3447 29.8346 52.5409 25.0308 52.5409 19.1051C52.5409 17.5255 52.8823 16.0257 53.4952 14.6753H47.3442C46.4303 14.6753 45.6895 15.4161 45.6895 16.33V21.7515C45.6895 22.6654 46.4303 23.4062 47.3442 23.4062H51.3436V29.5723H45.9452C44.5209 29.5723 42.727 28.9366 41.2882 27.7691C39.8365 26.5913 38.6979 24.8304 38.6979 22.5624V17.0617C38.6979 16.1181 39.2235 15.2563 40.0553 14.8226C40.1104 14.7938 40.1466 14.7375 40.1466 14.6753H32.9421C32.0282 14.6753 31.2874 15.4161 31.2874 16.33V21.7515C31.2874 22.6654 32.0282 23.4062 32.9421 23.4062H36.5902V29.5723H31.5431C30.1188 29.5723 28.3249 28.9366 26.8861 27.7691C25.4345 26.5913 24.2958 24.8304 24.2958 22.5624V17.0617C24.2958 16.118 24.8214 15.2563 25.6532 14.8226C25.7083 14.7938 25.7445 14.7375 25.7445 14.6753H20.5055C21.118 16.0253 21.4591 17.5246 21.4591 19.1036C21.4591 25.0294 16.6553 29.8332 10.7295 29.8332C4.80378 29.8332 0 25.0294 0 19.1036C0 13.1779 4.80378 8.3741 10.7295 8.3741C14.8628 8.3741 18.4502 10.7112 20.2423 14.136V8.58644H20.8818C24.0049 8.58644 26.5689 4.70619 26.5689 0.551546V-3.05176e-05H32.9817C33.2136 2.16835 33.4909 5.15662 32.0174 6.9508C31.2482 7.88735 30.1777 8.42886 29.0016 8.48448V8.58644H35.4703C38.5922 8.58454 40.7873 4.70517 40.7873 0.551546V-3.05176e-05H47.2001C47.4321 2.16835 47.7094 5.15662 46.2359 6.9508C45.4667 7.88735 44.3962 8.42886 43.2201 8.48449V8.58644H53.5821L53.6438 14.3614C55.3947 10.8149 59.0477 8.37554 63.2705 8.37554C69.1962 8.37554 74 13.1793 74 19.1051ZM58.8291 19.0594C58.8291 21.5119 60.8173 23.5001 63.2698 23.5001C65.7224 23.5001 67.7105 21.5119 67.7105 19.0594C67.7105 16.6068 65.7224 14.6187 63.2698 14.6187C60.8173 14.6187 58.8291 16.6068 58.8291 19.0594ZM6.28819 19.0579C6.28819 21.5105 8.27637 23.4987 10.7289 23.4987C13.1814 23.4987 15.1696 21.5105 15.1696 19.0579C15.1696 16.6054 13.1814 14.6172 10.7289 14.6172C8.27637 14.6172 6.28819 16.6054 6.28819 19.0579Z"/></svg></a>
+        <div class="foot-links"><a href="https://www.ottocreatives.com/">Home</a><a href="https://www.ottocreatives.com/services">Services</a><a href="https://www.ottocreatives.com/cases">Cases</a><a href="https://www.ottocreatives.com/about">About</a><a href="https://www.ottocreatives.com/contact">Contact</a></div>
+      </div>
+      <div class="foot-cols">
+        <div><h4>Brussels HQ</h4><p>Botanic Tower, Business Center<br>Boulevard Saint-Lazare 4 / 17<br>1210 Saint-Josse-ten-Noode<br>Belgium 🇧🇪</p><a href="https://maps.app.goo.gl/7g9a9DrRi15khmm4A" target="_blank" rel="noopener">Get directions</a></div>
+        <div><h4>Contact</h4><p><a class="plain" href="mailto:hello@ottocreatives.com">hello@ottocreatives.com</a><br><a class="plain" href="tel:+32494415379">+32 494 41 53 79</a></p><a href="mailto:hello@ottocreatives.com">Send us a message</a></div>
+        <div class="news"><div><b>Join our newsletter</b><span>Stay up to date on </span><i>news and insights.</i></div><a class="btn sky" href="https://tally.so/r/m6AOlB" target="_blank" rel="noopener">Sign up now</a></div>
+      </div>
+    </div>
+    <div class="credits">
+      <div class="credits-row">
+        <span>Thanks to you, we plant trees with <a href="https://goforest.be/" target="_blank" rel="noopener">GoForest</a>.</span>
+        <div class="credits-right">
+          <div class="socials"><a href="https://www.instagram.com/ottocreativescom/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M16 3.24268H8C5.23858 3.24268 3 5.48126 3 8.24268V16.2427C3 19.0041 5.23858 21.2427 8 21.2427H16C18.7614 21.2427 21 19.0041 21 16.2427V8.24268C21 5.48126 18.7614 3.24268 16 3.24268ZM19.25 16.2427C19.2445 18.0353 17.7926 19.4872 16 19.4927H8C6.20735 19.4872 4.75549 18.0353 4.75 16.2427V8.24268C4.75549 6.45003 6.20735 4.99817 8 4.99268H16C17.7926 4.99817 19.2445 6.45003 19.25 8.24268V16.2427ZM16.75 8.49268C17.3023 8.49268 17.75 8.04496 17.75 7.49268C17.75 6.9404 17.3023 6.49268 16.75 6.49268C16.1977 6.49268 15.75 6.9404 15.75 7.49268C15.75 8.04496 16.1977 8.49268 16.75 8.49268ZM12 7.74268C9.51472 7.74268 7.5 9.7574 7.5 12.2427C7.5 14.728 9.51472 16.7427 12 16.7427C14.4853 16.7427 16.5 14.728 16.5 12.2427C16.5027 11.0484 16.0294 9.90225 15.1849 9.05776C14.3404 8.21327 13.1943 7.74002 12 7.74268ZM9.25 12.2427C9.25 13.7615 10.4812 14.9927 12 14.9927C13.5188 14.9927 14.75 13.7615 14.75 12.2427C14.75 10.7239 13.5188 9.49268 12 9.49268C10.4812 9.49268 9.25 10.7239 9.25 12.2427Z"/></svg></a><a href="https://www.linkedin.com/company/ottocreatives/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" d="M4.5 3.24268C3.67157 3.24268 3 3.91425 3 4.74268V19.7427C3 20.5711 3.67157 21.2427 4.5 21.2427H19.5C20.3284 21.2427 21 20.5711 21 19.7427V4.74268C21 3.91425 20.3284 3.24268 19.5 3.24268H4.5ZM8.52076 7.2454C8.52639 8.20165 7.81061 8.79087 6.96123 8.78665C6.16107 8.78243 5.46357 8.1454 5.46779 7.24681C5.47201 6.40165 6.13998 5.72243 7.00764 5.74212C7.88795 5.76181 8.52639 6.40728 8.52076 7.2454ZM12.2797 10.0044H9.75971H9.7583V18.5643H12.4217V18.3646C12.4217 17.9847 12.4214 17.6047 12.4211 17.2246C12.4203 16.2108 12.4194 15.1959 12.4246 14.1824C12.426 13.9363 12.4372 13.6804 12.5005 13.4455C12.7381 12.568 13.5271 12.0013 14.4074 12.1406C14.9727 12.2291 15.3467 12.5568 15.5042 13.0898C15.6013 13.423 15.6449 13.7816 15.6491 14.129C15.6605 15.1766 15.6589 16.2242 15.6573 17.2719C15.6567 17.6417 15.6561 18.0117 15.6561 18.3815V18.5629H18.328V18.3576C18.328 17.9056 18.3278 17.4537 18.3275 17.0018C18.327 15.8723 18.3264 14.7428 18.3294 13.6129C18.3308 13.1024 18.276 12.599 18.1508 12.1054C17.9638 11.3713 17.5771 10.7638 16.9485 10.3251C16.5027 10.0129 16.0133 9.81178 15.4663 9.78928C15.404 9.78669 15.3412 9.7833 15.2781 9.77989C14.9984 9.76477 14.7141 9.74941 14.4467 9.80334C13.6817 9.95662 13.0096 10.3068 12.5019 10.9241C12.4429 10.9949 12.3852 11.0668 12.2991 11.1741L12.2797 11.1984V10.0044ZM5.68164 18.5671H8.33242V10.01H5.68164V18.5671Z"/></svg></a></div>
+          <a href="https://www.ottocreatives.com/privacy-policy">Privacy Policy</a><a href="https://www.ottocreatives.com/cookie-policy">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+    <p class="copy">© <span id="year">2026</span> Otto Creatives. All rights reserved.</p>
+  </div>
+  <img class="oval" src="https://cdn.prod.website-files.com/68393ce860f4d02a1628aee1/683c234b870f2478d118d1d5_bg-oval-shape.avif" alt="">
+</footer>
+
+<script>
+const CFG = {"fields": [{"id": "name", "label": "Full name", "placeholder": "Your full name"}, {"id": "title", "label": "Job title", "placeholder": "e.g. European and Belgian Patent Attorney"}, {"id": "phone", "label": "Phone (T)", "placeholder": "+32 ..."}, {"id": "fax", "label": "Fax (F)", "placeholder": "+32 ..."}, {"id": "email", "label": "Email (M)", "placeholder": "name@brantsandpatents.com"}, {"id": "address", "label": "Office address", "placeholder": "Street 1, B-1000 City, Belgium", "default": "Pauline van Pottelsberghelaan 24, B-9051 Sint-Denijs-Westrem, Belgium"}], "signature": {"layout": "grid", "font": "Aptos,'Segoe UI',Arial,Helvetica,sans-serif", "name_font": "Cambria,Georgia,'Times New Roman',serif", "name_size": 15, "name_line": 19, "name_color": "#141414", "name_weight": "bold", "text_size": 13, "text_line": 17, "text_color": "#141414", "spacer": 6, "banner_gap": 20, "website": {"url": "https://www.brantsandpatents.com", "label": "brantsandpatents.com"}, "logo": {"file": "assets/logo.png", "url": "https://cdn.prod.website-files.com/68393ce860f4d02a1628aee1/6ac7855bcf4be741dafaeeef_brantsandpatents.png", "width": 56, "height": 65, "gap": 16, "alt": "Brants & Patents", "preview": "data:image/png;base64,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"}, "grid": {"top_gap": 36, "prefix_width": 21, "row_gap": 3, "prefix_font": "Cambria,Georgia,'Times New Roman',serif", "prefix_color": "#AF8CFA", "divider_color": "#AF8CFA", "divider_gap": 26, "rows": [{"prefix": "T", "field": "phone", "href": "tel", "sample": "+32 000 00 00 00"}, {"prefix": "F", "field": "fax", "href": "tel", "sample": "+32 000 00 00 00"}, {"prefix": "M", "field": "email", "href": "mailto", "sample": "name@brantsandpatents.com"}], "right": [{"label": "brantsandpatents.com", "url": "https://www.brantsandpatents.com"}, {"lines": ["address"], "gap_before": 5}]}}, "variants": [{"key": "option1", "title": "1. Purple", "banner": null}, {"key": "testA", "title": "Test A", "note": "no purple text", "banner": null, "signature": {"grid": {"prefix_color": "#141414"}}}, {"key": "testB", "title": "Test B", "note": "no purple at all", "banner": null, "signature": {"grid": {"prefix_color": "#141414", "divider_color": "#141414"}}}], "mockup": {"to": "Receiver", "lines": ["Dear receiver,", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut purus mauris, faucibus sit amet mollis consequat, varius venenatis felis. Mauris porttitor venenatis feugiat.", "Kind regards,"]}, "install": ["gmail", "outlook"]};
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+const val = id => ($("f-" + id) ? $("f-" + id).value.trim() : "");
+$("year").textContent = new Date().getFullYear();
+
+$("fields").innerHTML = CFG.fields.map(f => f.options
+  ? `<label for="f-${f.id}">${esc(f.label)}<select id="f-${f.id}">${f.options.map(o => `<option value="${esc(o.value)}">${esc(o.label)}</option>`).join("")}</select></label>`
+  : `<label for="f-${f.id}">${esc(f.label)}<input id="f-${f.id}" placeholder="${esc(f.placeholder || "")}" value="${esc(f.default || "")}"></label>`).join("");
+// Values of a right item made of typed lines (empty lines skipped; preview shows the placeholder).
+// One field (e.g. a typed address) breaks after its first comma, so "Street 24, B-9051 City, Belgium" is two lines.
+const lineVals = (r, useUrl) => r.lines.map(id => val(id) || (useUrl ? "" : (CFG.fields.find(f => f.id === id) || {}).placeholder || "")).filter(Boolean)
+  .flatMap(x => r.lines.length === 1 && r.split !== false ? x.replace(/,\s*/, ",\n").split("\n") : [x]);
+// Selected option of a dropdown field ({value, label, html, plain}).
+const opt = id => { const f = CFG.fields.find(x => x.id === id); return f && f.options && (f.options.find(o => o.value === val(id)) || f.options[0]); };
+// Install steps: config "install" picks the apps (default: all).
+document.querySelectorAll("#install [data-app]").forEach(li => li.hidden = !!CFG.install && !CFG.install.includes(li.dataset.app));
+
+// Email-safe signature: tables + inline styles, no whitespace between tags (Spark turns it into gaps),
+// margin:0 on images (Spark adds margin:0.7em on save otherwise).
+function sig(useUrl, key){
+  return CFG.signature.layout === "grid" ? gridSig(useUrl, key) : stackSig(useUrl, key);
+}
+const href = (kind, x) => kind === "tel" ? "tel:" + x.replace(/[^+\d]/g,"") : kind === "mailto" ? "mailto:" + x : x;
+// "grid" layout: logo + name/title on top, then labelled contact rows | divider | website + address.
+// Built like Otto's own signature (tested on iPhone dark mode): one plain table, real hex colours on every text and link
+// (no "inherit": Apple Mail then keeps the whole mail white), links with the same colour so no app paints them blue,
+// no floats. Mail apps darken the background and turn the dark text light themselves.
+// A variant can override signature settings (e.g. another logo); "logo" and "grid" merge one level deep.
+function gridSig(useUrl, key){
+  const v = CFG.variants.find(x => x.key === key), b = v && v.banner, o = (v && v.signature) || {};
+  const s = {...CFG.signature, ...o, logo: {...CFG.signature.logo, ...(o.logo || {})}, grid: {...CFG.signature.grid, ...(o.grid || {})}}, g = s.grid;
+  const F = `font-family:${s.font};`;
+  const T = `${F}font-size:${s.text_size}px;line-height:${s.text_line}px;color:${s.text_color};`;
+  const A = `color:${s.text_color};text-decoration:none;`;
+  const link = (url, label) => `<a href="${url}" target="_blank" style="${A}">${label}</a>`;
+  const logo = useUrl ? s.logo.url : s.logo.preview;
+  const name = esc(val("name") || "Your Name"), title = esc(val("title") || "Your title");
+  const head = `<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr>
+<td valign="middle" width="${s.logo.width}" style="padding:0 ${s.logo.gap}px 0 0;"><a href="${s.website.url}" target="_blank"><img src="${logo}" width="${s.logo.width}" height="${s.logo.height}" alt="${esc(s.logo.alt)}" style="display:block;border:0;margin:0;"></a></td>
+<td valign="middle" style="${T}"><div style="font-family:${s.name_font || s.font};font-size:${s.name_size}px;line-height:${s.name_line}px;font-weight:${s.name_weight || "bold"};color:${s.name_color};">${name}</div><div style="height:${s.spacer}px;line-height:${s.spacer}px;font-size:1px;">&nbsp;</div><div style="${T}">${title}</div></td>
+</tr></table>`;
+  const rows = g.rows.map(r => {
+    const x = (r.field ? val(r.field) : r.value) || (useUrl ? "" : r.sample || ""); if (!x) return "";
+    return `<tr><td width="${g.prefix_width}" style="${T}font-family:${g.prefix_font || s.font};color:${g.prefix_color};padding:0 0 ${g.row_gap}px 0;">${esc(r.prefix)}</td><td style="${T}padding:0 0 ${g.row_gap}px 0;white-space:nowrap;">${r.href ? link(href(r.href, x), esc(x)) : esc(x)}</td></tr>`;
+  }).join("");
+  // Right column: website, then typed lines (an address breaks after its first comma). Each line stays whole.
+  const right = g.right.map((r, i) => {
+    const lines = r.lines ? lineVals(r, useUrl) : [r.label];
+    const html = lines.map(l => `<span style="white-space:nowrap;">${esc(l)}</span>`).join("<br>");
+    return `<div style="${T}${i && r.gap_before ? `padding-top:${r.gap_before}px;` : ""}">${r.url ? link(r.url, html) : html}</div>`;
+  }).join("");
+  // Two align="left" tables: side by side on desktop, the right one drops under the left one on a narrow phone.
+  const contact = `<table align="left" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr>
+<td valign="top" style="padding:0 ${g.divider_gap}px ${g.wrap_gap ?? 12}px ${g.indent || 0}px;"><table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">${rows}</table></td>
+</tr></table><table align="left" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr>
+<td valign="top" style="border-left:1px solid ${g.divider_color};padding:0 0 0 ${g.divider_gap}px;">${right}</td>
+</tr></table>`;
+  const banner = b ? `<tr><td style="padding:${s.banner_gap}px 0 0 0;"><a href="${b.link || s.website.url}" target="_blank"><img src="${useUrl ? b.url : b.preview}" width="${b.width}" height="${b.height}" alt="${esc(b.alt || "")}" style="display:block;border:0;margin:0;"></a></td></tr>` : "";
+  return `<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;${F}">
+<tr><td style="padding:0 0 ${g.top_gap}px 0;">${head}</td></tr><tr><td>${contact}</td></tr>${banner}</table>`.replace(/>\s+</g, "><").trim();
+}
+function stackSig(useUrl, key){
+  const s = CFG.signature, v = CFG.variants.find(x => x.key === key), b = v && v.banner;
+  const F = `font-family:${s.font};`;
+  // Links: mail apps paint "inherit" links blue, so links can get a real colour (link_color); a span inside locks it for Outlook.
+  const L = `color:${s.link_color || s.text_color};text-decoration:none;`;
+  const logo = useUrl ? s.logo.url : s.logo.preview;
+  const name = esc(val("name") || "Your Name"), title = esc(val("title") || "Your title"), phone = val("phone");
+  const lines = [];
+  lines.push(`<div style="font-size:${s.name_size}px;line-height:${s.name_line}px;font-weight:bold;color:${s.name_color};">${name}</div>`);
+  lines.push(`<div>${title}${s.title_suffix || ""}</div>`);
+  lines.push(`<div style="height:${s.spacer}px;line-height:${s.spacer}px;font-size:1px;">&nbsp;</div>`);
+  if (phone) lines.push(`<div><a href="tel:${phone.replace(/[^+\d]/g,"")}" style="${L}">${esc(phone)}</a></div>`);
+  (CFG.extra_lines || []).forEach(x => lines.push(`<div><a href="${x.url}" target="_blank" style="${L}">${esc(x.label)}</a></div>`));
+  if (s.website) lines.push(`<div><a href="${s.website.url}" target="_blank" style="${L}">${esc(s.website.label)}</a></div>`);
+  const banner = b ? `<tr><td><a href="${b.link || s.website.url}" target="_blank"><img src="${useUrl ? b.url : b.preview}" width="${b.width}" height="${b.height}" alt="${esc(b.alt || "")}" style="display:block;border:0;margin:0;"></a></td></tr>` : "";
+  return `<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;${F}">
+<tr><td style="padding:0 0 ${b ? s.banner_gap : 0}px 0;"><table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr>
+<td valign="top" width="${s.logo.width}" style="padding:0 ${s.logo.gap}px 0 0;"><a href="${s.website.url}" target="_blank"><img src="${logo}" width="${s.logo.width}" height="${s.logo.height}" alt="${esc(s.logo.alt)}" style="display:block;border:0;margin:0;"></a></td>
+<td valign="${s.valign}" style="${F}vertical-align:${s.valign};font-size:${s.text_size}px;line-height:${s.text_line}px;color:${s.text_color};">${lines.join("")}</td>
+</tr></table></td></tr>${banner}</table>`.replace(/>\s+</g, "><").trim();
+}
+function plainSig(){
+  const s = CFG.signature;
+  if (s.layout === "grid") return [val("name"), val("title"), "",
+    ...s.grid.rows.map(r => { const x = r.field ? val(r.field) : r.value; return x ? `${r.prefix} ${x}` : ""; }).filter(Boolean),
+    ...s.grid.right.map(r => r.field ? (opt(r.field).plain || opt(r.field).label) : r.lines ? lineVals(r, true).join(" ") : r.label)].join("\n");
+  return [val("name"), val("title") + (CFG.signature.title_suffix_plain || ""), "", val("phone"), CFG.signature.website ? CFG.signature.website.label : ""].filter((x,i) => x || i === 2).join("\n");
+}
+// One live preview inside a mail mockup; tabs pick the version when there are several.
+let key = CFG.variants[0].key;
+const MAIL = CFG.mockup || {to: "Jan Peeters", lines: ["Dear Jan,", "Thanks for your quick reply. Monday at 2:30 pm works best for me.", "Kind regards,"]};
+function render(){
+  $("tabs").innerHTML = CFG.variants.length < 2 ? "" : CFG.variants.map(v =>
+    `<button class="tab" role="tab" data-key="${v.key}" aria-selected="${v.key === key}">${esc(v.title)}${v.note ? ` <span>${esc(v.note)}</span>` : ""}</button>`).join("");
+  const name = val("name") || "Your Name";
+  const initials = name.split(/\s+/).filter(Boolean).map(w => w[0]).slice(0, 2).join("").toUpperCase();
+  $("preview").innerHTML = `<div class="mail-from"><span class="avatar">${esc(initials)}</span><b>${esc(name)}</b><span>to</span><em>${esc(MAIL.to)}</em></div>
+${MAIL.lines.map(l => `<p>${esc(l)}</p>`).join("")}<div class="mail-sig" data-preview="${key}">${sig(false, key)}</div>`;
+}
+CFG.fields.forEach(f => $("f-" + f.id).addEventListener(f.options ? "change" : "input", render));
+$("tabs").addEventListener("click", ev => {
+  const t = ev.target.closest("[data-key]"); if (!t) return;
+  key = t.dataset.key; say(""); render();
+});
+render();
+
+// One copy handler for the button and a manual Cmd+C on the preview: always puts the hosted-image HTML on the clipboard.
+let armed = null;
+function previewKey(){
+  const sel = getSelection(); if (!sel || !sel.rangeCount) return null;
+  let n = sel.getRangeAt(0).commonAncestorContainer; n = n.nodeType === 1 ? n : n.parentElement;
+  const box = n && n.closest("[data-preview]"); return box ? box.dataset.preview : null;
+}
+document.addEventListener("copy", e => {
+  const k = armed || previewKey(); if (!k) return;
+  e.clipboardData.setData("text/html", sig(true, k));
+  e.clipboardData.setData("text/plain", plainSig());
+  e.preventDefault(); armed = null;
+});
+function say(m, kind){ const s = $("status"); s.textContent = m; s.className = "status " + (m ? (kind || "ok") : ""); }
+$("copy").addEventListener("click", () => {
+  armed = key; let ok = false;
+  try { ok = document.execCommand("copy"); } catch (e) {}
+  if (ok && !armed) { say("Copied. Paste it in your mail app (step 2)."); return; }
+  armed = null;
+  const r = document.createRange(); r.selectNodeContents(document.querySelector("[data-preview]"));
+  const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+  say("Selected. Press Cmd+C, then paste.", "warn");
+});
+</script>
+
+</html>
+<!-- build 1791525935 -->
