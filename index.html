@@ -207,6 +207,7 @@ const href = (kind, x) => kind === "tel" ? "tel:" + x.replace(/[^+\d]/g,"") : ki
 // Built like Otto's own signature (tested on iPhone dark mode): one plain table, real hex colours on every text and link
 // (no "inherit": Apple Mail then keeps the whole mail white), links with the same colour so no app paints them blue,
 // no floats. Mail apps darken the background and turn the dark text light themselves.
+// Name and title sit in their own table cells (like the contact rows): as loose divs next to the logo, dark mode left them dark.
 // A variant can override signature settings (e.g. another logo); "logo" and "grid" merge one level deep.
 function gridSig(useUrl, key){
   const v = CFG.variants.find(x => x.key === key), b = v && v.banner, o = (v && v.signature) || {};
@@ -219,7 +220,7 @@ function gridSig(useUrl, key){
   const name = esc(val("name") || "Your Name"), title = esc(val("title") || "Your title");
   const head = `<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr>
 <td valign="middle" width="${s.logo.width}" style="padding:0 ${s.logo.gap}px 0 0;"><a href="${s.website.url}" target="_blank"><img src="${logo}" width="${s.logo.width}" height="${s.logo.height}" alt="${esc(s.logo.alt)}" style="display:block;border:0;margin:0;"></a></td>
-<td valign="middle" style="${T}"><div style="font-family:${s.name_font || s.font};font-size:${s.name_size}px;line-height:${s.name_line}px;font-weight:${s.name_weight || "bold"};color:${s.name_color};">${name}</div><div style="height:${s.spacer}px;line-height:${s.spacer}px;font-size:1px;">&nbsp;</div><div style="${T}">${title}</div></td>
+<td valign="middle"><table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr><td style="font-family:${s.name_font || s.font};font-size:${s.name_size}px;line-height:${s.name_line}px;font-weight:${s.name_weight || "bold"};color:${s.name_color};padding:0 0 ${s.spacer}px 0;">${name}</td></tr><tr><td style="${T}">${title}</td></tr></table></td>
 </tr></table>`;
   const rows = g.rows.map(r => {
     const x = (r.field ? val(r.field) : r.value) || (useUrl ? "" : r.sample || ""); if (!x) return "";
@@ -322,4 +323,4 @@ if (CFG.copy_code) {
 </script>
 
 </html>
-<!-- build 1791526263 -->
+<!-- build 1791526343 -->
